@@ -1,0 +1,294 @@
+/*Header animation*/
+@keyframes rolling{
+    /*I have 4+1 elemenrs so five section*/
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(-20%);
+    }
+    50%{
+        transform: translateY(-40%);
+    }
+    75%{
+        transform: translateY(-60%);
+    }
+    100%{
+        transform: translateY(-80%);
+    }
+}
+
+
+
+
+
+/*CSS RESET*/
+body, h1, p, ul, h2, h3 {
+    margin: 0;
+    padding:0;
+}
+
+li{
+    /*no dots*/
+    list-style-type: none;
+}
+
+h1, h3{
+    font-size: 100%;
+    font-weight: normal;
+}
+
+h2{
+    font-size:150%;
+    font-weight: normal;
+}
+
+a{
+    /*follow parent's color*/
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    background-color: #111;
+    color: #f0f2f2; 
+}
+
+.portrait {
+    background-image:url(pro2.jpg);   
+    Height: 140%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    /* padding-top to adjust web view based on the window size */
+    padding-top: 56.25%; /* 16:9 ratio*/
+}
+
+.profile {
+    padding: 7%;
+   /* min-height: 2000px;*/
+}
+
+.profileHeader, .profileSection {
+    padding-bottom: 9%;
+}
+
+.profileHeader p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/*-------------------------projects-------------------------*/
+.profileSection h2{
+    border-top: 2px solid;
+    color: #e6faff;
+    margin-bottom: 1em;
+    padding: 0.5em 0;
+    /*position:sticky;
+    top:0;
+    background-color: #111;
+    box-shadow: 0 0 50px 10px #111;*/
+
+}
+
+.profileSection h3{
+    color:#e6faff;
+}
+
+.profile li{
+    padding-top: 0.2em;
+    padding-bottom: 0.8em;
+}
+
+.profileHeader{
+    font-size: 50px;
+    line-height: 2;
+    font-family: Garamond, serif;
+    margin-bottom: 10px;
+    /*position: sticky;
+    top:-1.8em;
+    background-color: #111;
+    box-shadow: 0 0 50px 10px #111;*/
+}
+
+.projectNames {
+    /* 16px = 1rem cuz i didnt fix it*/
+    font-size: 1rem;
+    color: #d9d9d9;
+}
+
+
+.projectNames li{
+    padding-bottom: 1em;
+}
+
+.projectNames li :last-child{
+    padding-bottom: 0;
+}
+
+.projectNames h3{
+    color: #e6faff;
+    float:center;
+    font-size: 1.2rem;
+    margin-right:0.5em;
+    border-top:0.1rem solid;
+    letter-spacing: 0.2em;
+    padding-top: 0.2em;
+    margin-right: 0.5em;
+    margin-top: 0.1em;
+}
+/*-------------------------projects-------------------------*/
+/*---------------------Job----------------------- */
+.jobName{
+    display: inline-block;
+    color: white;
+    vertical-align: top;
+    Height: 2em;
+    /*hide other components beside the current one*/
+    overflow: hidden;
+    /*without this it will cut off some letter at the end*/
+    padding-right: 0.25em;
+    /*jobName ::after*/
+    position:relative;
+    margin-left: 0.3em;
+}
+
+/*this will make rolling smoother*/
+.jobName::after{
+    content: '';
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin-left: -1em;
+    margin-right: -1em;
+    box-shadow: inset 0 0 0.25em 10px #111;;
+}
+
+
+.jobNameList{
+    animation-name: rolling;
+    animation-duration: 12s;
+    /*function forever*/
+    animation-iteration-count: infinite;
+    margin-top: -0.18em;
+}
+/*--------------------job ends-------------------------*/
+/*----------------GeonKim = header name----------------*/
+.headerName{
+    /* based on parents font (.profileHeader)*/
+    font-size:1.5em;
+    line-height: 1;
+    color: mintcream;
+    margin-left: -0.1em;
+    position: relative;
+    margin-top: -0.1em;
+}
+/*--------------------Header name ends---------------------------------*/
+/*--------------------Icon Section-------------------------------------*/
+.icons{
+    margin: 1em 0;
+}
+
+.icons a{
+    background-image: url(./icons.png);
+    /*pixel size*/
+    width:32px;
+    height:32px;
+    display: inline-block;
+    /*text-indent: -9999px;*/
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*Theses display icons from the image*/
+/*since the background image was not transparent, used border-radius to cut off*/
+.icons a.Instagram {border-radius: 32.5% 32.5% 32.5% 32.5%; background-position:left bottom;} 
+.icons a.LinkedIn {border-radius: 50% 50% 50% 50%; background-position: center bottom;}
+.icons a.GitHub {border-radius: 50% 50% 50% 50%; background-position: right bottom;}
+/*This will change the color when mouse is on*/
+.icons a:hover {background-position-y: top;}
+/*--------------------------Icon Section Ends---------------------------------*/
+/*----------------contact-----------------*/
+.list dt {
+    color:mintcream;
+    float:left;
+    width:4em;
+    font-size: 1.25em;
+}
+.list dd {
+    overflow:hidden;
+    font-size: 1.25em;
+}
+/*---------------contact ends-----------------------*/
+/*--------------------------graph---------------------------------------------*/
+.graph li{
+    background-color: deepskyblue;
+    background: rgb(181,189,188);
+    background: linear-gradient(90deg, rgba(181,189,188,1) 0%, rgba(53,101,96,1) 100%);
+    padding:0.4em 1em;
+    margin: 0.4em 0;
+    border-radius: 40px;
+    /*graph has margin*/
+    box-sizing: border-box ;
+  }
+
+.graph li::before {
+    /*data score attribution*/
+    content: attr(data-score);
+    float:right;
+  }
+.graph li[data-score="120%"]{
+    /*background: rgb(215,0,1);
+    background: linear-gradient(90deg, rgba(215,0,1,1) 0%, rgba(175,195,0,1) 100%);*/
+    width:120%;
+}
+.graph li[data-score="100%"]{
+    width:100%;
+}
+.graph li[data-score="90%"]{
+    width:90%;
+}
+.graph li[data-score="80%"]{
+    width:80%;
+}
+.graph li[data-score="70%"]{
+    width:70%;
+}
+.graph h3{
+    color:#111;
+}
+/*----------------------graph ends----------------*/
+/*when the website is on full screen it will split image and the body*/
+@media (min-width: 800px){
+    .portrait{
+        position: fixed;
+        left:0;
+        top:0;
+        width:55vw;
+        height:100w;
+        padding:0;
+    }
+    .profile{
+        margin-left: 55vw;
+    }
+    .headerName{
+        font-size: 6vw;
+    }
+    .projectNames{
+        margin:0 -10px;
+    }
+    .projectNames li{
+        width: 50%;
+        padding:0 10px;
+        box-sizing: border-box;
+    }
+    /*when project is even number it will make zig-zag display*/
+    .projectNames li:nth-child(even){
+        margin-left:auto;
+        margin-top:-30px;
+        margin-bottom: 10px;
+    }
+}
+/*------------------------web adjust ends----------*/
+
